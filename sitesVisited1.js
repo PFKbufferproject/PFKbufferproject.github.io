@@ -500,7 +500,6 @@ var madeira =[
     {'type':'Feature','properties':{'id':'MD0144','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7403702,-36.8074062]}},
     {'type':'Feature','properties':{'id':'MD0176','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7326518,-36.8071916]}},
     {'type':'Feature','properties':{'id':'MD0181','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7333587,-36.8075257]}},
-    {'type':'Feature','properties':{'id':'MD0193','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.776807,-36.7919834]}},
     {'type':'Feature','properties':{'id':'MD0195','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.732481,-36.808719]}},
     {'type':'Feature','properties':{'id':'MD0294','madeira_vine':'+++'},'geometry':{'type':'Point','coordinates':[174.7280292,-36.8051515]}},
     {'type':'Feature','properties':{'id':'MD0388','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7151849,-36.8018611]}},
