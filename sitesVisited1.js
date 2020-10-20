@@ -489,3 +489,28 @@ var nightshade = [
 {'type':'Feature','properties':{'id':'MD0682','woolly_nightshade':1},'geometry':{'type':'Point','coordinates':[174.7189082,-36.8024699]}},
 {'type':'Feature','properties':{'id':'MD0689','woolly_nightshade':1},'geometry':{'type':'Point','coordinates':[174.7073758,-36.8003879]}}
 ];
+var madeira =[
+    {'type':'Feature','properties':{'id':'MD0004','madeira_vine':'+'},'geometry':{'type':'Point','coordinates':[174.7343338,-36.803934]}},
+    {'type':'Feature','properties':{'id':'MD0044','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7398357,-36.8043747]}},
+    {'type':'Feature','properties':{'id':'MD0048','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7401155,-36.8048253]}},
+    {'type':'Feature','properties':{'id':'MD0070','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7410844,-36.8034939]}},
+    {'type':'Feature','properties':{'id':'MD0071','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7427081,-36.8030947]}},
+    {'type':'Feature','properties':{'id':'MD0085','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7428105,-36.8044056]}},
+    {'type':'Feature','properties':{'id':'MD0087','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7429217,-36.8045481]}},
+    {'type':'Feature','properties':{'id':'MD0144','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7403702,-36.8074062]}},
+    {'type':'Feature','properties':{'id':'MD0176','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7326518,-36.8071916]}},
+    {'type':'Feature','properties':{'id':'MD0181','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7333587,-36.8075257]}},
+    {'type':'Feature','properties':{'id':'MD0193','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.776807,-36.7919834]}},
+    {'type':'Feature','properties':{'id':'MD0195','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.732481,-36.808719]}},
+    {'type':'Feature','properties':{'id':'MD0294','madeira_vine':'+++'},'geometry':{'type':'Point','coordinates':[174.7280292,-36.8051515]}},
+    {'type':'Feature','properties':{'id':'MD0388','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7151849,-36.8018611]}},
+    {'type':'Feature','properties':{'id':'MD0416','madeira_vine':'+'},'geometry':{'type':'Point','coordinates':[174.7145975,-36.8090644]}},
+    {'type':'Feature','properties':{'id':'MD0484','madeira_vine':''},'geometry':{'type':'Point','coordinates':[174.7170347,-36.8057632]}},
+    {'type':'Feature','properties':{'id':'MD0649','madeira_vine':'++'},'geometry':{'type':'Point','coordinates':[174.7096715,-36.8092423]}}
+]
+var rhamnus = [
+    {'type':'Feature','properties':{'id':'MD0171','rhamnus':'++'},'geometry':{'type':'Point','coordinates':[174.7372109,-36.8093899]}},
+{'type':'Feature','properties':{'id':'MD0282','rhamnus':'++'},'geometry':{'type':'Point','coordinates':[174.7278867,-36.8066344]}},
+{'type':'Feature','properties':{'id':'MD0361','rhamnus':'++'},'geometry':{'type':'Point','coordinates':[174.7298248,-36.8052286]}},
+{'type':'Feature','properties':{'id':'MD0552','rhamnus':'++'},'geometry':{'type':'Point','coordinates':[174.7102347,-36.8057343]}}
+]
