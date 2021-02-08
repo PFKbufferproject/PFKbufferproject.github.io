@@ -10,7 +10,8 @@
   crossorigin=""/>
   <!-- PruneCluster for leaflet-->
   <link rel="stylesheet" href="MarkerCluster.css"/>
-  <script src="leafelt.markercluster.js"></script>
+  <script src="leaflet.markercluster.js"></script>
+  <script src="leaflet-heat.js"></script>
 </head>
 <body>
   <div id="mapid"></div> 
@@ -21,6 +22,8 @@
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
 <script src="sitesVisited1.js"></script>
+<script src="geoJSONs/ginger.js"></script>
+<script src="KG-akl_council_parcels.geojson"></script>
 <script>
 
 // colored markers
@@ -74,7 +77,7 @@ var mymap = L.map('mapid',{
 
 
 var baseL = {
-  'Satellite' : L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+'Satellite' : L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox/satellite-v9',
@@ -115,6 +118,7 @@ var baseL = {
     accessToken: 'pk.eyJ1IjoiaGFsNiIsImEiOiJja2Fld2t4bG0wandzMnpwbmp2a24xemdqIn0.OhKsfnxo_9tOpw30fWU-CQ'
       })
     }
+  
 var mothplantOptions = {
     radius: 10,
     fillColor: "#ff7800",
@@ -124,7 +128,7 @@ var mothplantOptions = {
     fillOpacity: 0.4
 };
 let mpicon = L.icon({
-    iconUrl: 'mothplant-icon.png',
+    iconUrl: 'images/mothplant-icon.png', //note if you add a slash before images it doesn't recognise the file directory
     // shadowUrl: 'leaf-shadow.png',
     iconSize:     [36, 42], // size of the icon
     // shadowSize:   [50, 64], // size of the shadow
@@ -132,7 +136,16 @@ let mpicon = L.icon({
     // shadowAnchor: [4, 62],  // the same for the shadow
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-
+let gingericon = L.icon({
+    // iconUrl: '/images/yellow-ginger-icon.png',
+    iconUrl: 'images/yellow-ginger-icon-waterpixels.png',
+    // shadowUrl: 'leaf-shadow.png',
+    iconSize:     [36*1.2, 42*1.2], // size of the icon
+    // shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    // shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
 var mp = L.geoJSON(mothplant, {
     pointToLayer: function (feature, latlng) {
         // return L.circleMarker(latlng, mothplantOptions);
@@ -153,15 +166,31 @@ var asp = L.geoJSON(asparagus, {
     },})
 var gingerOptions = {
     radius: 10,
-    fillColor: "#ffffff",
+    // fillColor: "#ffffff",
+
+
+
     color: "#ffffff",
     weight: 1,
     opacity: 1,
-    fillOpacity: 0.4
-};
+    fillOpacity: 0.4,
+    function(feature) {
+        switch (feature.properties.abundance) {
+            case "": return {fillColor: "#ffffff"};
+            case "+": return {fillColor: "#123456"};
+            case "++":   return {fillColor: "#445566"};
+            case "+++":   return {fillColor: "#876764"};
+        }}};
+
+var gin1 = L.geoJSON(ginger1, {
+    pointToLayer: function (feature, latlng) {
+        // return L.marker(latlng,{icon:gingericon});
+        return L.circleMarker(latlng, gingerOptions);
+    },})
+
 var gin = L.geoJSON(ginger, {
     pointToLayer: function (feature, latlng) {
-        return L.marker(latlng,{icon:orangeIcon});
+        return L.marker(latlng,{icon:gingericon});
         // return L.circleMarker(latlng, gingerOptions);
     },})
 var nightshadeOptions = {
@@ -185,21 +214,27 @@ var rh = L.geoJSON(rhamnus, {
     pointToLayer: function (feature, latlng) {
         return L.marker(latlng,{icon:redIcon});
     },})
-    // var markers = L.markerClusterGroup();
+// var markers = L.markerClusterGroup();
     // markers.addLayer();
     // mymap.addLayer(markers);
+// var akllayer = L.geoJSON(akl,{}).addTo(mymap);
 
-    L.control.layers(baseL,
-      {"Mothplant": mp,
+// addressPoints = mpheatvar.map(function (p) { return [p[0], p[1]]; });
+// var heat = L.heatLayer(mpheatvar,{max:3}).addTo(mymap)
+
+L.control.layers(baseL,
+      {"Mothplant":mp,
       "Asparagus": asp,
       "Ginger": gin,
+      "Ginger1": gin1,
       "Woolly Nightshade": ns,
-        "Madeira Vine": mad,    
-        "Rhamnus": rh},
-        {collapsed:false}
-    ).addTo(mymap);
+      "Madeira Vine": mad,    
+      "Rhamnus": rh},
+      {collapsed:false}
+      ).addTo(mymap);
 
 baseL["Satellite"].addTo(mymap);
+
 
 
   </script>
